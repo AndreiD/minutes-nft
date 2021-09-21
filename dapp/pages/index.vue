@@ -4,8 +4,26 @@
       class="mb-5 display-3 text-xs-center justify-center"
       style="text-align: center; font-weight: bold"
     >
-      <span class="glow">Minutes</span> NFT
+      Minutes NFT
     </p>
+
+
+
+    <div class="max-width: 900px; margin: auto">
+      <p
+        class="headline mt-5 mb-5 text-xs-center justify-center"
+        style="text-align: center; margin: auto"
+      >
+        Minutes is a collection of <span style="font-weight: bold">1440</span> unique
+        NFTs on the Ethereum blockchain, one for each minute of the day.</p>
+
+         <img  class="headline mt-5 mb-5 text-xs-center justify-center"
+        style="text-align: center; margin: auto; max-width: 800px"
+       src="https://minutesnftt.netlify.app/images/ampm.gif" alt="ampm gif" />
+
+
+
+    </div>
 
     <p v-if="totalMinted && totalMinted > 1439"
       class="display-1 ma-5 subtitle text-xs-center justify-center"
@@ -19,54 +37,67 @@
     </p>
 
 
-    <v-form v-if="totalMinted < 1439" class="search-form" lazy-validation>
+    <v-form v-if="totalMinted < 1439"  lazy-validation>
       <div class="search-form__row text-xs-center justify-center">
-        <v-card elevation="5"  class="pa-5 ma-5" color="#333 !important"
-             style="min-width: 200px">
+        <v-card elevation="0"  class="pa-5 ma-5"
+             >
+
+<v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="6"
+        >
 
             <v-text-field
               v-model="amount"
-              outlined
+              solo
               class="centered-input"
-              style="text-align: center; color: white !important"
-              label="20 maximum per transaction"
+              style="height: 60px; text-align: center;"
+              label="Qty"
               required
             ></v-text-field>
-            <v-btn
-              x-large
-              block
 
-              class="glow"
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="6"
+        >
+            <v-btn
+              large
+              block
+              solo
+              style="height: 48px;"
               @click="
                 errorText = ''
                 buyNFT()
               "
             >
-              mint
+              MINT MINUTES
             </v-btn>
+        </v-col>
+      </v-row>
+</v-container>
           </v-card>
       </div>
     </v-form>
+
+     <p style="text-align: center; margin: auto">
+        Time is the most valuable thing. <br /><br />Get your Minutes, before time runs
+        out in the Metaverse. <br /><br />
+      </p>
+
+
 
       <p v-if="totalMinted > 4999" class="mb-5 subtitle text-xs-center justify-center"
       style="text-align: center; font-weight: bold">
        Total minted:
                 <span class="glow" style="font-weight: bold">{{ totalMinted }}</span> </span
               >
-
-
-
-    <div class="max-width: 900px; margin: auto">
-      <p
-        class="headline mt-5 mb-5 text-xs-center justify-center"
-        style="text-align: center; margin: auto"
-      >
-        Minutes NFT is <span style="font-weight: bold">1440</span> unique
-        images, one for each Minute of the day, ranging from 12:00-11:59 AM and
-        PM.<br /><br />Time is the most valuable thing. <br /><br />Get your Minutes, before time runs
-        out in the Metaverse. <br /><br />
       </p>
-    </div>
+
+
 
     <v-card
       v-if="txHash"
@@ -233,7 +264,7 @@ export default {
       try {
         const gasLimit = this.amount * 200000
 
-        this.itemPriceWei = await this.contract.getPricePerToken()
+        this.itemPriceWei = Number(50000000000000000);
 
         const overrides = {
           value: String(Number(this.amount) * Number(this.itemPriceWei)),

@@ -24,7 +24,7 @@ contract Minutes is ERC721Enumerable, Ownable, ReentrancyGuard {
 	uint256 public tokenIndex = 0;
 
 	//price per token
-	uint256 public pricePerToken = 5000000000000000000; //0.05 ETH
+	uint256 public pricePerToken = 50000000000000000; //0.05 ETH
 
 	constructor() ERC721("MinutesNFT", "MINUTES") {}
 
