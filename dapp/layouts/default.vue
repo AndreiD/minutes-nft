@@ -16,6 +16,7 @@
       <div class="social-btns">
         <v-btn
           href="http://discord.gg/minutes"
+          target="_blank"
           solo
           class="social-btn"
         >
@@ -24,6 +25,7 @@
 
         <v-btn
           href="https://twitter.com/minutes_nft"
+          target="_blank"
           solo
           class="social-btn"
         >
