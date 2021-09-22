@@ -40,7 +40,7 @@
           <v-container>
             <v-row>
               <v-col
-                cols="8"
+                cols="16"
                 md="4"
               >
                 <v-text-field
@@ -382,6 +382,12 @@ export default {
 
 ::v-deep .mint-btn .v-btn__content {
   color: #000000 !important;
+}
+
+@media (max-width: 767px) {
+  .main-block img {
+    width: 100%;
+  }
 }
 
 </style>
