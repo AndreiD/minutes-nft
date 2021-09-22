@@ -214,7 +214,7 @@ export default {
     async buyNFT() {
       if (this.isSaleActive == 0) {
         this.dialogError = true
-        this.errorText = 'sale is not live'
+        this.errorText = 'Join our Discord group for pre-mint whitelist access'
         return
       }
       if (this.totalMinted > 1439) {
@@ -226,8 +226,8 @@ export default {
         this.$toast.error('invalid amount')
         return
       }
-      if (Number(this.amount) > 20) {
-        this.$toast.error('maximum 20 NFTs at a time')
+      if (Number(this.amount) > 10) {
+        this.$toast.error('maximum 10 NFTs at a time')
         return
       }
 
