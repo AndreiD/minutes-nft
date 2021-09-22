@@ -15,15 +15,15 @@
 
       <div class="social-btns">
         <v-btn
+          href="http://discord.gg/minutes"
           solo
-          href="https://twitter.com/minutes_nft"
           class="social-btn"
         >
           Discord
         </v-btn>
 
         <v-btn
-          href="http://discord.gg/minutes"
+          href="https://twitter.com/minutes_nft"
           solo
           class="social-btn"
         >
