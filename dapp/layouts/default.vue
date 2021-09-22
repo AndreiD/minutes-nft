@@ -16,12 +16,14 @@
       <div class="social-btns">
         <v-btn
           solo
+          href="https://twitter.com/minutes_nft"
           class="social-btn"
         >
           Discord
         </v-btn>
 
         <v-btn
+          href="http://discord.gg/minutes"
           solo
           class="social-btn"
         >
@@ -197,13 +199,13 @@ h1 {
 }
 
 ::v-deep .social-btn {
-  font-size: 16px;
+  font-size: 16px !important;
   max-width: 200px;
   background-color: #ffffff !important;
   border-radius: 30px;
   margin-left: 15px;
   height: 48px !important;
-  width: 145px;
+  width: 160px;
 }
 
 ::v-deep .social-btn .v-btn__content {
