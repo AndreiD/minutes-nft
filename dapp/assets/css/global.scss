@@ -11,10 +11,10 @@
 }
 
 #app {
-  background-image: linear-gradient(rgb(70 70 70 / 50%), rgb(0 0 0)), url(https://minutesnft.com/images/background_space.jpg);
+  background-image: url(https://minutesnft.com/images/background_space.jpg);
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 #app,

@@ -15,19 +15,23 @@
 
       <div class="social-btns">
         <v-btn
-          solo
           href="https://twitter.com/minutes_nft"
-          class="social-btn"
+          target="_blank"
+          fab
+          text
+          redtext
         >
-          Discord
+          <v-icon>mdi-twitter</v-icon>
         </v-btn>
 
-        <v-btn
+         <v-btn
           href="http://discord.gg/minutes"
-          solo
-          class="social-btn"
+          target="_blank"
+          fab
+          text
+          redtext
         >
-          Twitter
+          <v-icon>mdi-discord</v-icon>
         </v-btn>
       </div>
 
@@ -41,28 +45,6 @@
     </v-main>
 
     <v-footer>
-        <v-card-text class="py-2 white--text text-center">
-          <v-btn
-            href="https://twitter.com/minutes_nft"
-            target="_blank"
-            fab
-            text
-            redtext
-          >
-            <v-icon>mdi-twitter</v-icon>
-          </v-btn>
-
-           <v-btn
-            href="http://discord.gg/minutes"
-            target="_blank"
-            fab
-            text
-            redtext
-          >
-            <v-icon>mdi-discord</v-icon>
-          </v-btn>
-        </v-card-text>
-
         <v-card-text class="py-2 white--text text-center">
           <p class="mt-5">
             Please be conscious of gas prices. check
@@ -198,19 +180,13 @@ h1 {
   display: flex;
 }
 
-::v-deep .social-btn {
-  font-size: 16px !important;
-  max-width: 200px;
-  background-color: #ffffff !important;
-  border-radius: 30px;
-  margin-left: 15px;
-  height: 48px !important;
-  width: 160px;
+::v-deep .social-btns a {
+  width: 72px;
+  height: 72px;
 }
 
-::v-deep .social-btn .v-btn__content {
-  color: #000000 !important;
-  text-transform: initial;
+::v-deep .social-btns i {
+  font-size: 42px !important;
 }
 
 </style>

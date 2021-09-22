@@ -2,23 +2,23 @@
   <v-container>
     <div class="main-block">
       <p>
-        Minutes is a collection of 1440 unique NFTs on the
-        Ethereum blockchain, one for each minute of the day.
+        Minutes is a collection of 1440 unique clock image 
+        NFTs on the Ethereum blockchain, one for each minute of the day:
       </p>
 
       <img src="https://minutesnftt.netlify.app/images/ampm.gif" alt="ampm gif" />
 
+      <p>
+        Time is the most valuable thing. <br />
+        Mint your Minutes, before time runs out.
+      </p>
+
       <p class="m-right">
-        05 ETH per mint <br />
+        .05 ETH per mint <br />
         1440 unique NFTs
         <br />
         <br />
         549/1440 minted
-      </p>
-
-      <p>
-        Time is the most valuable thing. <br />
-        Mint your Minutes, before time runs out.
       </p>
 
     </div>
@@ -43,14 +43,19 @@
                 cols="16"
                 md="4"
               >
-                <v-text-field
-                  v-model="amount"
-                  class="quantity-input"
-                  solo
+                <v-select
+                  :items="Array.from({length: 20}, (_, i) => i + 1)"
+                  class="quantity-input text-center"
                   label="Qty"
+                  v-model="amount"
+                  solo
                   required
-                ></v-text-field>
-
+                >
+                  <template slot="selection" slot-scope="{ item }">
+                    <span class="mx-auto qty-amount" style="padding-left: 30px"> {{ item }} </span>
+                  </template>
+                </v-select>
+                <p>Qty</p>
               </v-col>
 
               <v-col
@@ -69,6 +74,7 @@
                 >
                   Mint Minutes
                 </v-btn>
+                <p>.05 ETH/each</p>
               </v-col>
             </v-row>
           </v-container>
@@ -156,7 +162,7 @@ export default {
     return {
       id: null,
       totalMinted: null,
-      amount: null,
+      amount: 10,
       dialogConfirmation: false,
       catID: null,
       adoptedCats: null,
@@ -334,7 +340,7 @@ export default {
 }
 
 .main-block {
-  max-width: 520px;
+  max-width: 560px;
   margin: auto;
   position: relative;
 }
@@ -357,18 +363,32 @@ export default {
   max-width: 520px;
 }
 
+::v-deep .quantity-input {
+  width: 180px;
+}
+
 ::v-deep .quantity-input .v-input__slot {
   background: #ffffff !important;
   border-radius: 26px;
   height: 48px;
+  margin: auto;
 }
 
-::v-deep .quantity-input .v-input__slot label,
-::v-deep .quantity-input input {
+::v-deep .quantity-input .v-select__slot .v-select__selection,
+::v-deep .quantity-input .qty-amount,
+::v-deep .quantity-input select {
   color: #000000 !important;
   text-align: center;
-  font-size: 16px;
+  font-size: 16px !important;
   right: 0 !important;
+}
+
+::v-deep .quantity-input .v-text-field__details {
+  display: none !important;
+}
+
+::v-deep .quantity-input .v-select__slot input {  
+  display: none;
 }
 
 ::v-deep .mint-btn {
@@ -378,15 +398,47 @@ export default {
   text-transform: initial !important;
   font-size: 16px;
   width: 250px;
+  box-shadow: 1px 3px 0px #3e3e3e;
 }
 
 ::v-deep .mint-btn .v-btn__content {
   color: #000000 !important;
 }
 
+::v-deep .mint-btn {
+  will-change: transform;
+  transition: transform 250ms;
+}
+
+::v-deep .mint-btn:hover {
+  transform: translateY(-3px);
+}
+
+::v-deep .mint-btn:active {
+  transform: translateY(0px);
+}
+
+.search-form__row p {
+  line-height: 2;
+  text-align: center;
+  font-size: 20px;
+  margin: auto;
+}
+
 @media (max-width: 767px) {
   .main-block img {
     width: 100%;
+  }
+
+  ::v-deep .quantity-input {
+    width: 100%;
+  }
+
+  .main-block .m-right {
+    position: relative !important;
+    margin-top: 20px;
+    top: 0;
+    right: 0;
   }
 }
 
