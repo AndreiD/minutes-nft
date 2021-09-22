@@ -48,7 +48,7 @@
         <v-card-text class="py-2 white--text text-center">
           <p class="mt-5">
             Please be conscious of gas prices. check
-            <a href="https://etherscan.io/gastracker" target="_blank">etherscan.io/gastracker</a> and set the gas price to what is suggested for a transaction if you’re OK with the estimated price.
+            <a href="https://etherscan.io/gastracker" target="_blank"><span style="text-decoration: underline">etherscan.io/gastracker</span></a> and set the gas price to what is suggested for a transaction if you’re OK with the estimated price.
             This is a rough estimate and Minutes NFT takes no responsibility for lost gas on failed transactions.
           </p>
 

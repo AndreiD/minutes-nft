@@ -20,10 +20,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '1440 unique images of clocks on the Ethereum blockchain, one for every Minute of the day. Get your Minutes, before time runs out.' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          '1440 unique images of clocks on the Ethereum blockchain, one for every Minute of the day. Get your Minutes, before time runs out.',
+      },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap',

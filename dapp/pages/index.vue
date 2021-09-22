@@ -44,7 +44,7 @@
             <v-row>
               <v-col cols="16" md="4">
                 <v-select
-                  :items="Array.from({ length: 20 }, (_, i) => i + 1)"
+                  :items="Array.from({ length: 10 }, (_, i) => i + 1)"
                   class="quantity-input text-center"
                   label="Qty"
                   v-model="amount"
