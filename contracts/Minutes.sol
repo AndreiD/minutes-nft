@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract Minutes is ERC721Enumerable, Ownable, ReentrancyGuard {
 	using Strings for uint256;
 
-	string private _baseTokenURI = "ipfs://QmSv44syg468brUt7xGf4y5FyWSvGqLYhSKGmBLthUF7EC/";
+	string private _baseTokenURI = "https://api.minutesnft.com/metadata/";
 	string private _contractURI = "ipfs://QmQ8sE7BLBCTCAQf6Qu78PnrydoSUw55Xpu5j79EczhZAC";
 
 	//toggle the sale
@@ -113,6 +113,13 @@ contract Minutes is ERC721Enumerable, Ownable, ReentrancyGuard {
 
 	function reclaimERC20(IERC20 erc20Token) public onlyOwner {
 		erc20Token.transfer(msg.sender, erc20Token.balanceOf(address(this)));
+	}
+
+	/*
+	 * Change price
+	 */
+	function changeItemPrice(uint256 _newPrice) public onlyOwner {
+		pricePerToken = _newPrice;
 	}
 
 	function uint2str(uint256 _i) internal pure returns (string memory _uintAsString) {
