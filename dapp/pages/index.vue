@@ -55,7 +55,7 @@
                     <span class="mx-auto qty-amount" style="padding-left: 30px"> {{ item }} </span>
                   </template>
                 </v-select>
-
+                <p>Qty</p>
               </v-col>
 
               <v-col
@@ -74,6 +74,7 @@
                 >
                   Mint Minutes
                 </v-btn>
+                <p>.05 ETH/each</p>
               </v-col>
             </v-row>
           </v-container>
@@ -339,7 +340,7 @@ export default {
 }
 
 .main-block {
-  max-width: 520px;
+  max-width: 560px;
   margin: auto;
   position: relative;
 }
@@ -370,6 +371,7 @@ export default {
   background: #ffffff !important;
   border-radius: 26px;
   height: 48px;
+  margin: auto;
 }
 
 ::v-deep .quantity-input .v-select__slot .v-select__selection,
@@ -379,6 +381,10 @@ export default {
   text-align: center;
   font-size: 16px !important;
   right: 0 !important;
+}
+
+::v-deep .quantity-input .v-text-field__details {
+  display: none !important;
 }
 
 ::v-deep .quantity-input .v-select__slot input {  
@@ -392,10 +398,31 @@ export default {
   text-transform: initial !important;
   font-size: 16px;
   width: 250px;
+  box-shadow: 1px 3px 0px #3e3e3e;
 }
 
 ::v-deep .mint-btn .v-btn__content {
   color: #000000 !important;
+}
+
+::v-deep .mint-btn {
+  will-change: transform;
+  transition: transform 250ms;
+}
+
+::v-deep .mint-btn:hover {
+  transform: translateY(-3px);
+}
+
+::v-deep .mint-btn:active {
+  transform: translateY(0px);
+}
+
+.search-form__row p {
+  line-height: 2;
+  text-align: center;
+  font-size: 20px;
+  margin: auto;
 }
 
 @media (max-width: 767px) {
