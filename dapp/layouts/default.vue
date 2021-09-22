@@ -1,5 +1,5 @@
 <template>
-  <v-app dark style="background-color: #000">
+  <v-app dark>
     <v-app-bar
       class="app-nav"
       color="transparent"
@@ -9,35 +9,37 @@
     >
       <v-toolbar-title>
         <nuxt-link style="text-decoration: none" to="/">
-          <img
-            src="/logo.png"
-            class="logo-img"
-            style="height: 100px"
-            alt="ccc logo"
-          />
+          <h1>Minutes NFT</h1>
         </nuxt-link>
       </v-toolbar-title>
-      <div class="flex-grow-1"></div>
 
-      <v-btn color="green" outlined class="ma-2 glow" @click="metamaskButtonClicked()">{{
-        walletBtnText
-      }}</v-btn>
+      <div class="social-btns">
+        <v-btn
+          solo
+          class="social-btn"
+        >
+          Discord
+        </v-btn>
 
-        <kbd class="ma-5 orange--text pa-2" v-if="showNonMainnetWarning">
-          You are not connected to Ethereum Mainnet!
-        </kbd>
+        <v-btn
+          solo
+          class="social-btn"
+        >
+          Twitter
+        </v-btn>
+      </div>
 
-
+      <kbd class="ma-5 orange--text pa-2" v-if="showNonMainnetWarning">
+        You are not connected to Ethereum Mainnet!
+      </kbd>
     </v-app-bar>
 
     <v-main>
-
       <nuxt />
     </v-main>
 
     <v-footer>
         <v-card-text class="py-2 white--text text-center">
-
           <v-btn
             href="https://twitter.com/minutes_nft"
             target="_blank"
@@ -57,18 +59,14 @@
           >
             <v-icon>mdi-discord</v-icon>
           </v-btn>
-
-
         </v-card-text>
 
         <v-card-text class="py-2 white--text text-center">
-
-
-            <p class="mt-5">
-              Please be conscious of gas prices. check
-              <a href="https://etherscan.io/gastracker" target="_blank">etherscan.io/gastracker</a> and set the gas price to what is suggested for a transaction if you’re OK with the estimated price.
-              This is a rough estimate and Minutes NFT takes no responsibility for lost gas on failed transactions.
-            </p>
+          <p class="mt-5">
+            Please be conscious of gas prices. check
+            <a href="https://etherscan.io/gastracker" target="_blank">etherscan.io/gastracker</a> and set the gas price to what is suggested for a transaction if you’re OK with the estimated price.
+            This is a rough estimate and Minutes NFT takes no responsibility for lost gas on failed transactions.
+          </p>
 
           SMART CONTRACT ADDRESS:
           <a
@@ -186,4 +184,31 @@ a.nuxt-link-exact-active.list__tile--active.list__tile.list__tile--link {
   text-shadow: 0 0 15px rgb(137 246 143 / 77%), 0 0 10px transparent;
   -webkit-text-fill-color: transparent;
 }
+h1 {
+  letter-spacing: 0.5px;
+}
+
+.v-main {
+  padding-top: 25px !important;
+}
+
+.social-btns {
+  display: flex;
+}
+
+::v-deep .social-btn {
+  font-size: 16px;
+  max-width: 200px;
+  background-color: #ffffff !important;
+  border-radius: 30px;
+  margin-left: 15px;
+  height: 48px !important;
+  width: 145px;
+}
+
+::v-deep .social-btn .v-btn__content {
+  color: #000000 !important;
+  text-transform: initial;
+}
+
 </style>

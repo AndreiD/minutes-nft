@@ -1,27 +1,25 @@
 <template>
   <v-container>
-    <p
-      class="mb-5 display-3 text-xs-center justify-center"
-      style="text-align: center; font-weight: bold"
-    >
-      Minutes NFT
-    </p>
+    <div class="main-block">
+      <p>
+        Minutes is a collection of 1440 unique NFTs on the
+        Ethereum blockchain, one for each minute of the day.
+      </p>
 
+      <img src="https://minutesnftt.netlify.app/images/ampm.gif" alt="ampm gif" />
 
+      <p class="m-right">
+        05 ETH per mint <br />
+        1440 unique NFTs
+        <br />
+        <br />
+        549/1440 minted
+      </p>
 
-    <div class="max-width: 900px; margin: auto">
-      <p
-        class="headline mt-5 mb-5 text-xs-center justify-center"
-        style="text-align: center; margin: auto"
-      >
-        Minutes is a collection of <span style="font-weight: bold">1440</span> unique
-        NFTs on the Ethereum blockchain, one for each minute of the day.</p>
-
-         <img  class="headline mt-5 mb-5 text-xs-center justify-center"
-        style="text-align: center; margin: auto; max-width: 800px"
-       src="https://minutesnftt.netlify.app/images/ampm.gif" alt="ampm gif" />
-
-
+      <p>
+        Time is the most valuable thing. <br />
+        Mint your Minutes, before time runs out.
+      </p>
 
     </div>
 
@@ -36,68 +34,53 @@
       Thank you for participating!<br /><br />
     </p>
 
-
     <v-form v-if="totalMinted < 1439"  lazy-validation>
-      <div class="search-form__row text-xs-center justify-center">
-        <v-card elevation="0"  class="pa-5 ma-5"
-             >
+      <div class="search-form__row">
+        <v-card elevation="0"  class="ma-5">
+          <v-container>
+            <v-row>
+              <v-col
+                cols="8"
+                md="4"
+              >
+                <v-text-field
+                  v-model="amount"
+                  class="quantity-input"
+                  solo
+                  label="Qty"
+                  required
+                ></v-text-field>
 
-<v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="6"
-        >
+              </v-col>
 
-            <v-text-field
-              v-model="amount"
-              solo
-              class="centered-input"
-              style="height: 60px; text-align: center;"
-              label="Qty"
-              required
-            ></v-text-field>
-
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="6"
-        >
-            <v-btn
-              large
-              block
-              solo
-              style="height: 48px;"
-              @click="
-                errorText = ''
-                buyNFT()
-              "
-            >
-              MINT MINUTES
-            </v-btn>
-        </v-col>
-      </v-row>
-</v-container>
-          </v-card>
+              <v-col
+                cols="16"
+                md="8"
+              >
+                <v-btn
+                  large
+                  block
+                  solo
+                  class="mint-btn"
+                  @click="
+                    errorText = ''
+                    buyNFT()
+                  "
+                >
+                  Mint Minutes
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
       </div>
     </v-form>
 
-     <p style="text-align: center; margin: auto">
-        Time is the most valuable thing. <br /><br />Get your Minutes, before time runs
-        out in the Metaverse. <br /><br />
-      </p>
-
-
-
-      <p v-if="totalMinted > 4999" class="mb-5 subtitle text-xs-center justify-center"
-      style="text-align: center; font-weight: bold">
-       Total minted:
-                <span class="glow" style="font-weight: bold">{{ totalMinted }}</span> </span
-              >
-      </p>
-
-
+    <p v-if="totalMinted > 4999" class="mb-5 subtitle text-xs-center justify-center"
+    style="text-align: center; font-weight: bold">
+     Total minted:
+      <span class="glow" style="font-weight: bold">{{ totalMinted }}</span> </span>
+    </p>
 
     <v-card
       v-if="txHash"
@@ -349,4 +332,56 @@ export default {
 .centered-input input {
   text-align: center;
 }
+
+.main-block {
+  max-width: 520px;
+  margin: auto;
+  position: relative;
+}
+
+.main-block .m-right {
+  position: absolute;
+  top: 180px;
+  right: -220px;
+}
+
+.main-block p {
+  line-height: 1.6;
+  text-align: center;
+  font-size: 20px;
+  margin: auto;
+}
+
+.main-block img {
+  margin: 20px auto;
+  max-width: 520px;
+}
+
+::v-deep .quantity-input .v-input__slot {
+  background: #ffffff !important;
+  border-radius: 26px;
+  height: 48px;
+}
+
+::v-deep .quantity-input .v-input__slot label,
+::v-deep .quantity-input input {
+  color: #000000 !important;
+  text-align: center;
+  font-size: 16px;
+  right: 0 !important;
+}
+
+::v-deep .mint-btn {
+  height: 48px !important;
+  border-radius: 26px;
+  background: #ffffff !important;
+  text-transform: initial !important;
+  font-size: 16px;
+  width: 250px;
+}
+
+::v-deep .mint-btn .v-btn__content {
+  color: #000000 !important;
+}
+
 </style>
