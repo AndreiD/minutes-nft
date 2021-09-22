@@ -2,11 +2,14 @@
   <v-container>
     <div class="main-block">
       <p>
-        Minutes is a collection of 1440 unique clock image 
-        NFTs on the Ethereum blockchain, one for each minute of the day:
+        Minutes is a collection of 1440 unique clock image NFTs on the Ethereum
+        blockchain, one for each minute of the day:
       </p>
 
-      <img src="https://minutesnftt.netlify.app/images/ampm.gif" alt="ampm gif" />
+      <img
+        src="https://minutesnftt.netlify.app/images/ampm.gif"
+        alt="ampm gif"
+      />
 
       <p>
         Time is the most valuable thing. <br />
@@ -18,12 +21,12 @@
         1440 unique NFTs
         <br />
         <br />
-        549/1440 minted
+        <p v-if="totalMinted > 0">{{totalMinted}}/1440 minted</p>
       </p>
-
     </div>
 
-    <p v-if="totalMinted && totalMinted > 1439"
+    <p
+      v-if="totalMinted && totalMinted > 1439"
       class="display-1 ma-5 subtitle text-xs-center justify-center"
       style="text-align: center; font-weight: bold"
     >
@@ -34,17 +37,14 @@
       Thank you for participating!<br /><br />
     </p>
 
-    <v-form v-if="totalMinted < 1439"  lazy-validation>
+    <v-form v-if="totalMinted < 1439" lazy-validation>
       <div class="search-form__row">
-        <v-card elevation="0"  class="ma-5">
+        <v-card elevation="0" class="ma-5">
           <v-container>
             <v-row>
-              <v-col
-                cols="16"
-                md="4"
-              >
+              <v-col cols="16" md="4">
                 <v-select
-                  :items="Array.from({length: 20}, (_, i) => i + 1)"
+                  :items="Array.from({ length: 20 }, (_, i) => i + 1)"
                   class="quantity-input text-center"
                   label="Qty"
                   v-model="amount"
@@ -52,16 +52,15 @@
                   required
                 >
                   <template slot="selection" slot-scope="{ item }">
-                    <span class="mx-auto qty-amount" style="padding-left: 30px"> {{ item }} </span>
+                    <span class="mx-auto qty-amount" style="padding-left: 30px">
+                      {{ item }}
+                    </span>
                   </template>
                 </v-select>
                 <p>Qty</p>
               </v-col>
 
-              <v-col
-                cols="16"
-                md="8"
-              >
+              <v-col cols="16" md="8">
                 <v-btn
                   large
                   block
@@ -81,12 +80,6 @@
         </v-card>
       </div>
     </v-form>
-
-    <p v-if="totalMinted > 4999" class="mb-5 subtitle text-xs-center justify-center"
-    style="text-align: center; font-weight: bold">
-     Total minted:
-      <span class="glow" style="font-weight: bold">{{ totalMinted }}</span> </span>
-    </p>
 
     <v-card
       v-if="txHash"
@@ -253,13 +246,13 @@ export default {
       try {
         const gasLimit = this.amount * 200000
 
-        this.itemPriceWei = Number(50000000000000000);
+        this.itemPriceWei = Number(50000000000000000)
 
         const overrides = {
           value: String(Number(this.amount) * Number(this.itemPriceWei)),
           gasLimit: gasLimit,
         }
-        const tx = await this.contract.acquire(this.amount, overrides)
+        const tx = await this.contract.mint(this.amount, overrides)
         if (tx.hash) {
           this.$toast.info('transaction submitted successfully')
         }
@@ -387,7 +380,7 @@ export default {
   display: none !important;
 }
 
-::v-deep .quantity-input .v-select__slot input {  
+::v-deep .quantity-input .v-select__slot input {
   display: none;
 }
 
@@ -441,5 +434,4 @@ export default {
     right: 0;
   }
 }
-
 </style>
